@@ -37,11 +37,7 @@ double MatrixDeterminant(int nDim, std::vector<double>& matrix) {
         }
     }
 
-    for (int i = 0; i < nDim; ++i)
-        det *= matrix[i * nDim + i];
-
-    return det;
-}
+    }
 
 double Partition(const std::vector<std::vector<double>>& matrix, int s, int end, int n) {
     double det = 0.0;
@@ -72,6 +68,7 @@ int main(int argc, char* argv[]) {
     MPI_Status status;
 
     MPI_Init(&argc, &argv);
+    int rank, size, n;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &numtasks);
 
